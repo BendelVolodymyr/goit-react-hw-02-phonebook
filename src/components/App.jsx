@@ -26,17 +26,18 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: '',
   };
 
   handlerInputData = data => {
     const { name, number } = data;
-    this.state.contacts.filter(
-      contact =>
-        contact.name.toLowerCase().trim() === name.toLowerCase().trim() ||
-        contact.number.trim() === number.trim()
-    ).length > 0
+    const validInput = this.state.contacts.some(function (element) {
+      return (
+        element.name.toLowerCase().trim() === name.toLowerCase().trim() ||
+        element.number.trim() === number.trim()
+      );
+    });
+
+    return validInput
       ? toast.info(`${name}: is already in contacts `, notifyOptions)
       : this.setState(prevState => {
           return {
