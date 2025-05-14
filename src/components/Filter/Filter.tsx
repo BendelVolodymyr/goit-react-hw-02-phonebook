@@ -1,4 +1,10 @@
-const Filter = ({ title, onChange, value }) => {
+interface FilterProps {
+  title: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+}
+
+const Filter: React.FC<FilterProps> = ({ title, onChange, value }) => {
   return (
     <label>
       {title !== undefined && <h3>{title}</h3>}
