@@ -3,6 +3,8 @@ import { Contact } from 'components/App';
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 
+const UserIcon = FaUserPlus as React.ComponentType;
+
 interface ContactFormState {
   id: string;
   name: string;
@@ -64,7 +66,7 @@ class ContactForm extends Component<ContactFormProps, ContactFormState> {
         </label>
         <button className="form__box-button" type="submit">
           Add User
-          <FaUserPlus />
+          <UserIcon />
         </button>
       </form>
     );
